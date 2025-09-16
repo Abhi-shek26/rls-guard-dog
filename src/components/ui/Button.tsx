@@ -2,7 +2,7 @@ import { forwardRef, ElementType, ComponentPropsWithoutRef } from 'react';
 
 type ButtonProps<T extends ElementType> = {
   as?: T; 
-} & Omit<React.ComponentPropsWithRef<T>, 'as' | 'className' | 'children'>;
+} & Omit<React.ComponentProps<T>, 'as'>;
 
 const Button = forwardRef(
   <T extends ElementType = 'button'>(
