@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import TriggerAverageButton from '@/components/teacher/TriggerAverageButton';
 import EditProgressForm from '@/components/ui/EditProgressForm';
+import { ProgressRecord } from '@/lib/types';
 
 export default async function ClassroomDetailPage({ params }: { params: { classId: string } }) {
   const supabase = createClient();
@@ -36,7 +37,7 @@ export default async function ClassroomDetailPage({ params }: { params: { classI
 
         {progress && progress.length > 0 ? (
           <div className="space-y-4">
-            {progress.map((record: any) => (
+            {progress.map((record: ProgressRecord) => (
               <EditProgressForm key={record.progress_id} record={record} />
             ))}
           </div>

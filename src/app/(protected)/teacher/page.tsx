@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { Classroom } from '@/lib/types';
 
 export default async function TeacherDashboard() {
   const supabase = createClient();
@@ -48,7 +49,7 @@ export default async function TeacherDashboard() {
         <h1 className="text-2xl font-bold text-center">Select a Classroom</h1>
         {classrooms.length > 0 ? (
           <ul className="space-y-2">
-            {classrooms.map((classroom) => (
+            {classrooms.map((classroom : Classroom) => (
               <li key={classroom.id}>
                 <Link 
                   href={`/teacher/${classroom.id}`} 

@@ -4,8 +4,9 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { updateProgress } from '@/app/actions';
 import SubmitButton from './SubmitButton'; // <-- Import the new component
+import { ProgressRecord } from '@/lib/types';
 
-export default function EditProgressForm({ record }: { record: any }) {
+export default function EditProgressForm({ record }: { record: ProgressRecord }) {
   const [isEditing, setIsEditing] = useState(false);
   const router = useRouter();
   if (!isEditing) {

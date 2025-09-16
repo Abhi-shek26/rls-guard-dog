@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Card from '@/components/ui/Card';
 import SignOutButton from '@/components/auth/SignOutButton';
+import { StudentProgress } from '@/lib/types';
 
 export default async function StudentPage() {
   const supabase = createClient();
@@ -32,7 +33,7 @@ export default async function StudentPage() {
       
       <div className="space-y-4">
         {progress && progress.length > 0 ? (
-          progress.map((record: any) => (
+          progress.map((record: StudentProgress ) => (
             <div key={record.id} className="p-4 border rounded-lg bg-gray-50">
               <p className="font-semibold text-lg">Class: {record.classrooms?.name || 'N/A'}</p>
               <p>Score: <span className="font-mono">{record.score}</span></p>
