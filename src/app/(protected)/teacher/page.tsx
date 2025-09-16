@@ -37,7 +37,9 @@ export default async function TeacherDashboard() {
 
         if (error) console.error("Error fetching assigned classrooms for teacher:", error);
         else if (assignments) {
-          classrooms = assignments.map((item: any) => item.classrooms).filter(Boolean);
+          classrooms = assignments
+            .flatMap((item: { classrooms: { id: string; name: string }[] }) => item.classrooms)
+            .filter(Boolean) as Classroom[];
         }
       }
     }

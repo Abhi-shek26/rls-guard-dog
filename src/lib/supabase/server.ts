@@ -15,13 +15,13 @@ export function createClient() {
         async set(name: string, value: string, options: CookieOptions) {
           try {
             await (await cookieStore).set({ name, value, ...options });
-          } catch (error) {
+          } catch (_error) {
           }
         },
         async remove(name: string, options: CookieOptions) {
           try {
             await (await cookieStore).set({ name, value: '', ...options });
-          } catch (error) {
+          } catch (_error) {
             }
         },
       },

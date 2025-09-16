@@ -7,11 +7,12 @@ export interface ProgressRecord {
 }
 
 export interface StudentProgress {
-  classrooms: any;
+  classrooms: {
+    name: string;
+  } | null;
   id: number;
   score: number;
   notes: string | null;
-  // Add other fields from your student-specific view if necessary
 }
 
 export interface Classroom {

@@ -2,13 +2,11 @@ import { forwardRef, ElementType, ComponentPropsWithoutRef } from 'react';
 
 type ButtonProps<T extends ElementType> = {
   as?: T; 
-  className?: string;
-  children?: React.ReactNode;
 } & Omit<React.ComponentPropsWithRef<T>, 'as' | 'className' | 'children'>;
 
 const Button = forwardRef(
   <T extends ElementType = 'button'>(
-    { as, className = '', children, ...props }: ButtonProps<T>,
+    { as, className, children, ...props }: ButtonProps<T>,
     ref: React.Ref<any>
   ) => {
     const Component = as || 'button';
@@ -25,6 +23,6 @@ const Button = forwardRef(
   }
 );
 
-(Button as React.FC).displayName = 'Button';
+Button.displayName = 'Button';
 
 export default Button;
