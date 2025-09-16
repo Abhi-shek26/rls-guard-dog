@@ -1,4 +1,4 @@
-import { forwardRef, ElementType, ComponentPropsWithoutRef } from 'react';
+import { forwardRef, ElementType } from 'react';
 
 type ButtonProps<T extends ElementType> = {
   as?: T; 
